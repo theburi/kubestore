@@ -7,6 +7,11 @@ angular.
     },
     controller: function($window) {
       var $ctrl = this; 
-      
+      this.$onChanges = function (changes) { 
+        console.log(changes.filters.currentValue)
+
+        //make API call
+        
+      }
     }
   });

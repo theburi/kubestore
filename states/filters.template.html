@@ -1,0 +1,10 @@
+
+<md-content layout-fill class="md-whiteframe-2dp md-padding" flex>
+   <md-list layout="column" ng-repeat="filter in $ctrl.filters.filters track by $index"">
+        <md-subheader class="md-no-sticky">Filters</md-subheader>
+        <md-checkbox ng-model="item.checked" aria-label="Checkbox 2" ng-repeat="item in filter.filter track by $index"" ng-change='checked(item.name)' >
+             {{ item.name }}
+        </md-checkbox>
+   </md-list>
+
+</md-content>

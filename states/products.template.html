@@ -1,0 +1,16 @@
+
+
+<md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch ng-repeat="product in $ctrl.filters track by $index"">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Product with image</span>
+            <span class="md-subhead">{{ product.filter }} </span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-lg card-media"></div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>Add to Chart</md-button>
+        </md-card-actions>
+      </md-card>

@@ -16,14 +16,17 @@ angular.
       });
       this.$onChanges =  function (changes) {
         console.log("Test", changes.filters.currentValue)
-        let checked
+        let checked = "all=1"
         if (changes.filters) {
           $scope.filters = $window.angular.copy(changes.filters.currentValue); 
-
+          if ($scope.filters[0]) {
+            if ($scope.filters[0].filter[0].checked)
+              checked = "brand=Amazon"
+          }
         }
         //make API call
 
-          $http.get(`https://world-demo.westus.cloudapp.azure.com/api/products/?{checked}\=Amazon`).then((data, status) => {
+          $http.get('https://world-demo.westus.cloudapp.azure.com/api/products/?'+ checked).then((data, status) => {
 
             $scope.data = data.data
           }, err => {

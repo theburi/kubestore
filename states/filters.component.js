@@ -6,7 +6,7 @@ angular.
       filters: '<',
       callback: '<'
     },
-    controller: function($scope, $window) {
+    controller: function($scope, $window, $http) {
       var $ctrl = this;
 
       $ctrl.$onInit = function () {
@@ -19,13 +19,14 @@ angular.
         if (changes.filters) {
           $ctrl.filters = $window.angular.copy(changes.filters.currentValue); 
                   //make API call
-        $http.get('https://world-demo.westus.cloudapp.azure.com/api/filters').then((data, status) => {
 
-          $ctrl.filters = data
-                }, err => {
-                  console.log('Error with NODE SERVICE');
-                });
-        } 
+            // $http.get('https://world-demo.westus.cloudapp.azure.com/api/filters').then((data, status) => {
+            //   $ctrl.filters = data
+            // }, err => {
+            //   console.log('Error with NODE SERVICE');
+            // });
+          
+        }
       } 
 
       $scope.checked = function(val) {

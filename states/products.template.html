@@ -1,6 +1,6 @@
 
 
-<md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch ng-repeat="product in $ctrl.data track by $index"">
+<md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch ng-repeat="product in data">
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline">{{ product.name }} </span>
@@ -10,7 +10,24 @@
             <div class="md-media-lg card-media"></div>
           </md-card-title-media>
         </md-card-title>
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button>Add to Chart</md-button>
-        </md-card-actions>
+        <md-card-content>
+            <md-list class="md-dense" flex>
+            <md-list-item class="md-3-line md-long-text">
+                <div layout="row" layout-align="start center">
+                  <md-icon ng-repeat="i in [1,2,3,4,5]" ng-style="{color: product.reviews.rating >= i ? 'orange' : 'grey'}">star_rate</md-icon>
+                </div>
+                  <div class="md-list-item-text">
+                  <h3>{{ product.reviews.title }}</h3>
+                  <p>
+                      {{ product.reviews.text }}
+                  </p>
+                </div>
+               </md-list-item>
+            </md-list>
+          <!-- <ul> 
+            <li ng-repeat= "review in product.reviews" > {{ review }}</li>
+          </ul> -->
+        </md-card-content>
       </md-card>
+
+      {{ data }}

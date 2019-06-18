@@ -8,8 +8,9 @@ angular.module('store', [
 
   $scope.data = {
     filters: [
-      { filter: [
-        { name: 'Addidas', checked: false },
+      { name: 'brand',
+        filter: [
+        { name: 'Amazon', checked: false },
         { name: 'Nike', checked: false }] },
       {filter: [
         { name: 'Price 0-10', checked: false },

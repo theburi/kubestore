@@ -1,9 +1,10 @@
 
-
+<span class="md-padding">Showing: {{ getFilterString(filters) }}</span>
+<!-- <md-progress-circular md-mode="indeterminate" md-hide="loadingstate"></md-progress-circular> -->
 <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch ng-repeat="product in data">
         <md-card-title>
           <md-card-title-text>
-            <span class="md-headline">{{ product.name }} </span>
+            <h2>{{ product.name }} </h2>
             <span class="md-subhead">{{ product.categories }} </span>
           </md-card-title-text>
           <md-card-title-media>
@@ -12,14 +13,14 @@
         </md-card-title>
         <md-card-content>
             <md-list class="md-dense" flex>
-            <md-list-item class="md-3-line md-long-text">
+            <md-list-item class="md-3-line md-long-text" ng-repeat= "review in product.reviews | limitTo: 5">
                 <div layout="row" layout-align="start center">
-                  <md-icon ng-repeat="i in [1,2,3,4,5]" ng-style="{color: product.reviews.rating >= i ? 'orange' : 'grey'}">star_rate</md-icon>
+                  <md-icon ng-repeat="i in [1,2,3,4,5]" ng-style="{color: review.rating >= i ? 'orange' : 'grey'}">star_rate</md-icon>
                 </div>
                   <div class="md-list-item-text">
-                  <h3>{{ product.reviews.title }}</h3>
-                  <p>
-                      {{ product.reviews.text }}
+                  <h3>{{ review.title }}</h3>
+                  <p><md-truncate flex>
+                      {{ review.text }}</md-truncate>
                   </p>
                 </div>
                </md-list-item>
@@ -29,5 +30,3 @@
           </ul> -->
         </md-card-content>
       </md-card>
-
-      {{ data }}
